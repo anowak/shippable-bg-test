@@ -1,0 +1,14 @@
+language: php
+
+php: 
+  - 5.4
+
+before_script: 
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+
+script:
+  - sleep 20 &
+  - DYNAMODB_PID=$!
+  - echo "Some work"
+  - kill $DYNAMODB_PID
